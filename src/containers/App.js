@@ -3,6 +3,7 @@ import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox';
 import '../containers/App.css';
 import Scroll from '../components/Scroll';
+import ErrorBoundary from '../components/ErrorBoundary'
 
 // STATE= The description of your App, an object that describes your application:
 // STATE =CAN CHANGE: Lives in parent component that tells child component what properties(prop)
@@ -39,7 +40,9 @@ class App extends Component {
 				<h1 className='f1'>RoboPals</h1>
 				<SearchBox searchChange={this.onSearchChange}/>
 				<Scroll>
+					<ErrorBoundary>
 					<CardList robots={filteredRobots}/>
+					</ErrorBoundary>
 				</Scroll>
 			</div>
 		);
